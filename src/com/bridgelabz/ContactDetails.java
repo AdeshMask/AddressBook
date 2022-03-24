@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class ContactDetails {
     ArrayList<PersonsInfo> persons;
+    Scanner scanner = new Scanner(System.in);
     public ContactDetails(){
         persons = new ArrayList<PersonsInfo>();
     }
@@ -21,36 +22,81 @@ public class ContactDetails {
         System.out.println("Enter State: ");
         String state = scanner.nextLine();
         System.out.println("Enetr Zip Code:");
-        String zip = scanner.nextLine();
+        int zip = scanner.nextInt();
         System.out.println("Enter contact Number:");
-        String number = scanner.nextLine();
+        long number = scanner.nextLong();
         System.out.println("Enter Email: ");
         String email = scanner.nextLine();
 
-        //construct new person object
+
         PersonsInfo p = new PersonsInfo(name,lName,address,city,state,zip,number,email);
-        //add the above PersonInfo object to arraylist
+
         persons.add(p);
     }
     public void show(){
-        for (int i = 0; i < persons.size();i++)
-        {
-            PersonsInfo p = (PersonsInfo)persons.get(i);
-         //   p.print();
-            System.out.println(persons.get(i));
+        System.out.println(persons.size());
+        if (persons.size()==0){
+            System.out.println("No Records Found...Empty Address Book");
+        }
+        else {
+            for (int i = 0; i < persons.size(); i++) {
+                PersonsInfo p = (PersonsInfo) persons.get(i);
+                System.out.println(persons.get(i));
+                System.out.println("");
+            }
         }
     }
-
+//*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
     public void delete(){
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter First Name to delete contact:");
-        String name = scanner.nextLine();
-        for(int i = 0; i < persons.size(); i++){
-            PersonsInfo p = (PersonsInfo)persons.get(i);
-            if(name.equals(p.firstName)){
-                persons.remove(i); }
+        if (persons.size()==0){
+            System.out.println("No Record Found...Empty Address Book");
         }
-
-
-    }//remove function
+        else {
+            System.out.println("Enter First Name to delete contact:");
+            String name = scanner.nextLine();
+            for (int i = 0; i < persons.size(); i++) {
+                PersonsInfo p = persons.get(i);
+                if (name.equals(p.firstName)) {
+                    persons.remove(i);
+                    System.out.println("Delete Successfully..");
+                }
+            }
+        }
+    }
+    public void update(){
+        System.out.println("Enter First and last name to update details");
+        String name1 = scanner.nextLine();
+        String name2 = scanner.nextLine();
+        for(int i = 0; i < persons.size(); i++) {
+            PersonsInfo p = persons.get(i);
+            if (name1.equals(p.firstName) && name2.equals(p.lastName)) {
+                p.print();
+                System.out.println("Enter Choice to Update\nEnter 1 for Update Address\n Enter 2 for Contact \n " +
+                        "Enter 3 for Email address");
+                int choice = scanner.nextInt();
+                switch (choice) {
+                    case 1:
+                        System.out.println("Enter Address: ");
+                        String address = scanner.nextLine();
+                        System.out.println("Enter City Name: ");
+                        String city = scanner.nextLine();
+                        System.out.println("Enter State: ");
+                        String state = scanner.nextLine();
+                        System.out.println("Enetr Zip Code:");
+                        int zip = scanner.nextInt();
+                        break;
+                    case 2:
+                        System.out.println("Enter contact Number:");
+                        long number = scanner.nextLong();
+                        break;
+                    case 3:
+                        System.out.println("Enter Email: ");
+                        String email = scanner.nextLine();
+                        break;
+                }
+            }
+            else
+                System.out.println("No record found");
+        }
+    }
 }

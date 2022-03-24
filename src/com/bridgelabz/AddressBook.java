@@ -11,21 +11,25 @@ public class AddressBook {
         int ch;
         Scanner scanner = new Scanner(System.in);
         while (true) {
-            System.out.println(" Enter 1 to add\n Enter 2 to Show\n Enter 3 to Delete\n");
+            System.out.println(" Enter 1 to add\n Enter 2 to Update\n Enter 3 to Delete\n Enter 4 for Show Contacts");
             ch = scanner.nextInt();
             switch (ch) {
                 case 1:
                     contact.addPerson();
+                    System.out.println("Added Successfully...");
                     break;
                 case 2:
-                    System.out.println("");
-                    System.out.println("               "+"First Name "+" Last Name"+" Address"+" City"+" State"+" Zip"+" Number"+" E-mail");
-                    contact.show();
+                    contact.update();
                     break;
                 case 3:
                     contact.delete();
                     break;
-                case 4:
+                case 4 :
+                    System.out.println("");
+                    System.out.println("               "+"First Name "+" Last Name"+" Address"+" City"+" State"+" Zip"+" Number"+" E-mail");
+                    contact.show();
+                    break;
+                case 5:
                     System.exit(0);
             }
         }
