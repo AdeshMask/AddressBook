@@ -27,11 +27,16 @@ public class ContactDetails {
         long number = scanner.nextLong();
         System.out.println("Enter Email: ");
         String email = scanner.nextLine();
-
-
         PersonsInfo p = new PersonsInfo(name,lName,address,city,state,zip,number,email);
-
         persons.add(p);
+        System.out.println("if you want to add multiple person to Address Book");
+        System.out.println("If yes press 1");
+        int n = scanner.nextInt();
+        if (n==1){
+            addPerson();
+        }
+        else
+            System.out.println("");
     }
     public void show(){
         System.out.println(persons.size());
