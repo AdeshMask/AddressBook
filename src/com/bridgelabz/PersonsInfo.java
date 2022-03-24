@@ -9,11 +9,12 @@ public class PersonsInfo {
     String address;
     String city;
     String state;
-    String zip;
-    String number;
+    int zip;
+    long number;
     String email;
 
-    public PersonsInfo(String fname,String lname,String add, String ci,String st,String postalCode,String n,String mail){
+    //Constructor created
+    public PersonsInfo(String fname,String lname,String add, String ci,String st,int postalCode,long n,String mail){
         firstName = fname;
         lastName = lname;
         address = add;
@@ -23,6 +24,7 @@ public class PersonsInfo {
         number = n;
         email = mail;
     }
+
 
     @Override
     public String toString() {
