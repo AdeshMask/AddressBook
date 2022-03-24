@@ -10,7 +10,7 @@ public class PersonsInfo {
     String city;
     String state;
     String zip;
-    static String number;
+    String number;
     String email;
 
     public PersonsInfo(String fname,String lname,String add, String ci,String st,String postalCode,String n,String mail){
@@ -23,6 +23,20 @@ public class PersonsInfo {
         number = n;
         email = mail;
     }
+
+    @Override
+    public String toString() {
+        return "PersonsInfo:: " +
+                " " + firstName +
+                " " + lastName  +
+                " " + address  +
+                " " + city  +
+                " " + state  +
+                " " + zip  +
+                " " + number  +
+                " " + email+ "\n";
+    }
+
     public void print(){
         System.out.println("First Name: "+firstName+"\nLast Name: "+lastName+
                 "\nAddress: "+address+"\nCity:"+city+"\nState: "+state+"\nZip: "+zip+"\nContact number:"+number+"\nEmail ID:"+email+"\n");

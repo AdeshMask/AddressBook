@@ -27,16 +27,30 @@ public class ContactDetails {
         System.out.println("Enter Email: ");
         String email = scanner.nextLine();
 
+        //construct new person object
         PersonsInfo p = new PersonsInfo(name,lName,address,city,state,zip,number,email);
-        p.print();
+        //add the above PersonInfo object to arraylist
         persons.add(p);
     }
-    public void search(){
+    public void show(){
         for (int i = 0; i < persons.size();i++)
         {
             PersonsInfo p = (PersonsInfo)persons.get(i);
-            p.print();
+         //   p.print();
             System.out.println(persons.get(i));
         }
     }
+
+    public void delete(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter First Name to delete contact:");
+        String name = scanner.nextLine();
+        for(int i = 0; i < persons.size(); i++){
+            PersonsInfo p = (PersonsInfo)persons.get(i);
+            if(name.equals(p.firstName)){
+                persons.remove(i); }
+        }
+
+
+    }//remove function
 }

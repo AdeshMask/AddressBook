@@ -11,13 +11,21 @@ public class AddressBook {
         int ch;
         Scanner scanner = new Scanner(System.in);
         while (true) {
-            System.out.println(" Enter 1 to add\n");
-             ch = scanner.nextInt();
+            System.out.println(" Enter 1 to add\n Enter 2 to Show\n Enter 3 to Delete\n");
+            ch = scanner.nextInt();
             switch (ch) {
                 case 1:
                     contact.addPerson();
                     break;
                 case 2:
+                    System.out.println("");
+                    System.out.println("               "+"First Name "+" Last Name"+" Address"+" City"+" State"+" Zip"+" Number"+" E-mail");
+                    contact.show();
+                    break;
+                case 3:
+                    contact.delete();
+                    break;
+                case 4:
                     System.exit(0);
             }
         }
